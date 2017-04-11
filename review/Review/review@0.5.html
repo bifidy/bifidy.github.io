@@ -1,0 +1,829 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Bifidy" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="非壹即零" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="文/某鸟
+写在前面从14年初正式开始自学Objective-C（以下简称OC），3月中旬找到程序员工作，由此入行。转眼到了如今7月，已不知不觉有了半年。 作为一个非学院派的野生程序员，我始终对自己的代码水准与专业知识作自卑态度，入行越久，越知道其困难与过程的繁复。值半年之际，与大家分享些历程与感悟，还望诸位笑纳。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="程序员新手半年记">
+<meta property="og:url" content="http://bifidy.net/review/Review/review@0.5.html">
+<meta property="og:site_name" content="非壹即零">
+<meta property="og:description" content="文/某鸟
+写在前面从14年初正式开始自学Objective-C（以下简称OC），3月中旬找到程序员工作，由此入行。转眼到了如今7月，已不知不觉有了半年。 作为一个非学院派的野生程序员，我始终对自己的代码水准与专业知识作自卑态度，入行越久，越知道其困难与过程的繁复。值半年之际，与大家分享些历程与感悟，还望诸位笑纳。">
+<meta property="og:image" content="http://bifidycaps.tk/wp-content/uploads/2014/07/vvdocumenterSnapShot_1.png">
+<meta property="og:updated_time" content="2017-04-11T17:44:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="程序员新手半年记">
+<meta name="twitter:description" content="文/某鸟
+写在前面从14年初正式开始自学Objective-C（以下简称OC），3月中旬找到程序员工作，由此入行。转眼到了如今7月，已不知不觉有了半年。 作为一个非学院派的野生程序员，我始终对自己的代码水准与专业知识作自卑态度，入行越久，越知道其困难与过程的繁复。值半年之际，与大家分享些历程与感悟，还望诸位笑纳。">
+<meta name="twitter:image" content="http://bifidycaps.tk/wp-content/uploads/2014/07/vvdocumenterSnapShot_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://bifidy.net/review/Review/review@0.5.html"/>
+
+
+
+
+
+  <title> 程序员新手半年记 | 非壹即零 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">非壹即零</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">天道酬勤</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://bifidy.net/review/Review/review@0.5.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bifidy CAPs">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="非壹即零">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                程序员新手半年记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-07-03T02:20:11+08:00">
+                2014-07-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/review/" itemprop="url" rel="index">
+                    <span itemprop="name">入行回顾</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/review/Review/review@0.5.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="review/Review/review@0.5.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>文/某鸟</p>
+<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>从14年初正式开始自学Objective-C（以下简称OC），3月中旬找到程序员工作，由此入行。转眼到了如今7月，已不知不觉有了半年。 作为一个非学院派的野生程序员，我始终对自己的代码水准与专业知识作自卑态度，入行越久，越知道其困难与过程的繁复。值半年之际，与大家分享些历程与感悟，还望诸位笑纳。</p>
+<a id="more"></a>
+<h2 id="经验分享"><a href="#经验分享" class="headerlink" title="经验分享"></a>经验分享</h2><h3 id="1-更优秀的代码"><a href="#1-更优秀的代码" class="headerlink" title="1 更优秀的代码"></a>1 更优秀的代码</h3><p>在刚工作的一个多月里，自己随着代码量的提升，对OC的掌握也有了一个飞跃。当突然有一天，接到了新工作的时候，我想将自己的所学用在代码里，于是，我写了如下的一段代码：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"BCViewController.h"</span></span></div><div class="line"><span class="meta">#define max_limit 7</span></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">BCViewController</span> ()</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>)<span class="keyword">int</span> rank;</div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">strong</span>)<span class="built_in">NSMutableArray</span> *stack;</div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>)<span class="built_in">BOOL</span> flag;</div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">BCViewController</span></span></div><div class="line">- (<span class="built_in">NSMutableArray</span> *)stack</div><div class="line">&#123;<span class="keyword">if</span>(_stack==<span class="literal">nil</span>)&#123;</div><div class="line">    _stack=[[<span class="built_in">NSMutableArray</span> alloc]init];</div><div class="line">&#125;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&amp;lt;max_limit;i++) &#123;</div><div class="line">        [_stack addObject:[<span class="built_in">NSNumber</span> numberWithInt:<span class="keyword">self</span>.rank]];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> _stack;</div><div class="line">&#125;</div><div class="line">- (<span class="built_in">BOOL</span>)flag&#123;</div><div class="line">    _flag=!_flag;</div><div class="line">    <span class="keyword">return</span> _flag;</div><div class="line">&#125;</div><div class="line">- (<span class="keyword">int</span>)rank&#123;</div><div class="line">    <span class="keyword">if</span>(<span class="keyword">self</span>.flag)&#123;</div><div class="line">        <span class="keyword">return</span>  _rank++;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line">- (<span class="keyword">void</span>)viewDidLoad&#123;</div><div class="line">    <span class="keyword">self</span>.rank=<span class="number">1</span>;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[<span class="keyword">self</span>.stack description]);</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p>代码实现的功能并不复杂，建立一个名为stack的数组，以max_limit为宽度，生成一组单数位递增，双数位取0的数据。 真正工作中的实现要比这个代码更为复杂些，比如我其实不用以flag这样的BOOL值来判定单双数。 写这段代码，只是为了扩大我在写代码时想炫耀的东西，也同时放大我的错误。</p>
+<ul>
+<li>过度的重写getter。当我第一次理解了getter与点语法的本质时，我十分迷恋使用sth.getter调用方法同时获取返回值。以利用OC语法为目的，将算法写的晦涩难懂，在当时的我看来，却是一项值得炫耀的技能。</li>
+<li>名目繁琐的调用。由于getter被广泛重写，我使用了属性生成的_preperty进行部分的赋值于取值，同时也利用sth.setter进行赋值。使得整篇代码名目繁乱，读起来甚至有点不接上下文的感觉。如果变量和方法再多些，就只能挨个按住command点击去追根溯源了。不巧，在那份真实的代码中，我便为自己设置了这样的障碍。</li>
+<li>对于优秀代码的误解。由于将编程本身理解为了一种技术性极强的工作，认为代码本身必须要体现其技术水平，与对一个语言的掌握程度。在实际的工作中，才发现，这样的代码写作方式，恰恰是相反的。我非但没依靠自己的技术写出一份优秀的代码，反而自我局限，写出了一堆连自己看着都累的字母。</li>
+<li><p>代码的拓展性和复用性。在需求发生改变时，这段代码需要改动的地方颇多不说。我惊讶的发现我原来没预料到的问题，这些数据是要提供给外部的，而我恰恰重写了所有的getter，这导致我不得不重新写方法来获得数据。以前的自作聪明不仅没有让我提高效率和代码质量，反而给自己挖了一个大坑，让自己写了很多原本不用去写的代码。</p>
+<p>改变发生在公司的安排下，离开了编程岗位一个月之后，重新回到岗位上。需求发生了变化，而代码也需要合并进库中。当我重新打开自己的代码后，我花了整个下午的时间，终于看懂了我当时那些愚蠢的思路。痛定思痛，我重构了我的代码。于是乎，上面的那篇代码，被我改成了下面的这个样子：</p>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//  BCViewController.h</span></div><div class="line"></div><div class="line"><span class="meta">#define max_array_limit 7</span></div><div class="line"><span class="meta">#define each_number_distance 2</span></div><div class="line"></div><div class="line"><span class="meta">#import &amp;lt;UIKit/UIKit.h&amp;gt;</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">BCViewController</span> : <span class="title">UIViewController</span></span></div><div class="line">-(<span class="built_in">NSMutableArray</span> *)createStack;</div><div class="line">-(<span class="built_in">NSMutableArray</span> *)createStackWithNumberDistance:(<span class="keyword">int</span>)distance AndMaxLimit:(<span class="keyword">int</span>)limit;</div><div class="line"><span class="keyword">@end</span></div><div class="line"><span class="comment">//BCViewController.m</span></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">BCViewController</span></span></div><div class="line"><span class="keyword">int</span> rank;</div><div class="line">-(<span class="built_in">NSMutableArray</span> *)createStack&#123;</div><div class="line">    <span class="built_in">NSMutableArray</span> *array=[<span class="keyword">self</span> createStackWithNumberDistance:each_number_distance AndMaxLimit:max_array_limit];</div><div class="line">    <span class="keyword">return</span> array;</div><div class="line">&#125;</div><div class="line">-(<span class="built_in">NSMutableArray</span> *)createStackWithNumberDistance:(<span class="keyword">int</span>)distance AndMaxLimit:(<span class="keyword">int</span>)limit&#123;</div><div class="line">    <span class="built_in">NSMutableArray</span> *array=[[<span class="built_in">NSMutableArray</span> alloc]init];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&amp;lt;limit; i++) &#123;</div><div class="line">        <span class="keyword">if</span> (!(i%distance)) &#123;</div><div class="line">            [array addObject:[<span class="built_in">NSNumber</span> numberWithInt:rank++]];</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            [array addObject:[<span class="built_in">NSNumber</span> numberWithInt:<span class="number">0</span>]];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> array;</div><div class="line">&#125;</div><div class="line">- (<span class="keyword">void</span>)viewDidLoad&#123;</div><div class="line">    rank=<span class="number">1</span>;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[[<span class="keyword">self</span> createStack] description]);</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p>乍一眼望去，或许要比第一段代码繁琐些，方法名字也长了，属性也没了。但仔细看的话，我想你很快就能看懂这段代码。其实所有的算法都写到了最长方法名的那个方法里，只有一个for循环和一个if判定。如果你有心情测试的话，放心吧，两段代码的实现结果是完全一样的。总结起来，我一共做了下面几件事：</p>
+<ul>
+<li><strong>整理算法</strong> 其实当我在用属性getter进行各种计算与取值之后，我并没有真正意识到，我所需要的数据，只需要一组for+if的计算就可以解决问题。而我只需要写这样的计算，再看到的时候依旧只有这段计算。如果我当初就这样写的话，我根本无需花一下午的时间去确定我到底要做什么，因为计算的过程其实少的可怜。</li>
+<li><strong>设置参数</strong> 即便是因为需求改变，但是我依然因为数字间隔不同头痛了一番。因为单双数的判定可以用BOOL值，但位数变多之后，BOOL值就无法立即得到结果，如果硬要用BOOL值的话，就又多了一个用来计数的变量。而数组的宽度也由当初的限制变为了可变量。于是，我将所有会变化的参数设置了宏定义，并且给出了两个接口方法。对于固定数据的调用，用简易的方法就足够，而当参数变化时，则可以利用相对复杂的方法更灵活的应用了。</li>
+<li><strong>设计方法</strong> 这是与参数相对应的。根据需求将基本算法确定后，先写出基本方法去做实现，而后所有的调用都是对这些方法的封装，类的设计也可以沿用这种思路。从正交性上来说，方法与类的嵌套表现为树形结构的垂直轮廓是一个很不错的思路，将方法的影响降至尽可能低，高集成，低耦合，再到维护代码时的解耦重构，都是有一定指导意义的。</li>
+<li><p><strong>规范命名</strong> 这点我并不保证自己做的很好。毕竟我同时使用了下划线和大写驼峰命名，我只能说我是部分遵守了OC原生库的命名法则。之所以所部分，是因为我在命名宏参数的时候，帕斯卡命名法我使用了小写字母。但纵使我的英语拙劣，我还是希望读我代码的人一眼就能看出这个变量和方法究竟是干什么用的，需要哪些参数。因为，我也是其中之一。</p>
+<p>就这样，我完成了对自己代码的重构，由此，也总结出关于优秀代码的几点新的认识。</p>
+</li>
+<li><p><strong>易读</strong> 不要炫耀自己的技能，因为这为阅读代码带来了困难。在别人眼中得到优秀评价的前提是，他能看完这篇代码。</p>
+</li>
+<li><strong>简单</strong> 理清算法与思路，并且用最简单直观的代码描述出来。在别人眼中得到优秀评价的第二前提是，他能看懂这篇代码。</li>
+<li><strong>实用</strong> 知道自己为了什么去写这段代码，并且尽可能优秀的解决问题。在别人眼中得到优秀评价的又一个前提是，他不想重写这篇代码。</li>
+</ul>
+<p>这几乎与我最初想象编程这个神秘而高雅工作的内涵是背道而驰的，但却同时变成了我写代码的追求。其实答案很简单，我不想在回过头来看自己写的代码时，觉得自己写了一坨屎。</p>
+<h3 id="2-规范代码"><a href="#2-规范代码" class="headerlink" title="2.规范代码"></a>2.规范代码</h3><p>说起规范代码，说得虚伪一点，这是个门面活。为了方便自己阅读，也为了让别人看着舒服，即便不是强迫症，我还是会在回过头看自己的代码同时，调整一下换行和对齐。 让代码变的规范，或者仅仅是有一个从一而终的代码风格，是一个很细碎的过程。 在刚开始写OC的时候，自己很喜欢在同一行里嵌套很多个[]，夹杂着点语法，然后靠自动换行来控制版面。当然了，随着代码的复杂程度增加，比如随处可见的block，解析JSON时多层数组与字典的遍历与索引，这样的方式反而会给阅读带来极大的不便。 所以，有时候只不过是为了能让一大段代码规规整整的换几次行，我也会选择加一两个指针开销，然后用temp做前缀，等着ARC把他们释放掉。 所以，从自己的代码经验和代码质量来说，这段总结并不完整，也不一定优秀。只是我在自己写代码的过程中，基于自己的阅读需求而衍生出来的书写规范而已。</p>
+<ul>
+<li><strong>括号</strong> 括号是编程里一个很能体现结构和层次的东西。现在的IDE没有几个不支持括号对齐的，即便乱了，也可以选择代码，右键里选择Structure-&gt;Re-Indent来整理格式。或者自己在书写的时候依靠Tab键与空格来控制也是可以的。这里要说的是单句的if和for，请一定要加空格= =。别嫌麻烦，别炫耀自己的语法功底，当你这么做了，你会感谢自己的。</li>
+<li><strong>命名</strong> <a href="http://baike.baidu.com/link?url=UzmyvC7lajIet4qVW-Djd0kd7n7DfkNNJwHYcfnVhkJ1nDwlRwAApHBlyio7ZDh_h5IvZgn585_7wIVi9Ugq9_" target="_blank" rel="external">帕斯卡命名</a>和<a href="http://baike.baidu.com/view/2359058.htm" target="_blank" rel="external">驼峰命名</a>简单且基本，哪怕不习惯，请用英语单词吧。不知道怎么表达时我偶尔会用字典，通篇相同的命名规则会减少打断思路的次数。熟知的过渡变量可以偷懒用用str,dic,nav,VC这样无伤大雅的缩写，但是自动补全已经充斥着整个IDE的今天，面对不那么容易一下想到的缩写，请写全称吧，把简写留给自己的私有方法就好，不要为难别人。对于一个程序员来说，猜需求和猜方法的结果是同样让人不爽的。在OC中，也有很多值得借鉴的命名方式。<blockquote>
+<p>比如： UIView的hidden属性的getter=isHidden 回调方法会利用will/did/should这样的词来表示执行顺序与条件这些细碎的东西，越是统一，读起来就越是通顺。</p>
+</blockquote>
+</li>
+<li><strong>段落</strong> 在OC中，<code>#pragma mark -</code>是个好东西，可以整理你类里的方法，方便你的检索。如果不知道怎么使用的话，你可以新建一个<code>UINavigationController</code>的模板，然后查看一下代码，并在编辑区上方的路径索引中查看最末尾的方法，那对我来说是一个惊喜，希望对你来说也是。</li>
+</ul>
+<p>这些东西，大多是自己随着代码量的提升自己总结出来的细节，做不到并不影响代码质量，只是做到了，会让代码看起来更舒服。就我自己而言，我始终认为，自己除了是一个代码的撰写者以外，更是一个代码的阅读者。或许是自己之前不成功的写作经历让自己有了这样的习惯，总喜欢站在观众的角度去审视自己的作品究竟合不合格。而我，不是太习惯把自己不满意的东西交付给别人。我的作品并不一定是最优秀的，但我会尽可能把它完成到我的能力上限。 直到我需要在时间、精力与完成度上取舍时，我才会考虑忽略。毕竟这是我们的工作，我无法保证永远有人耐心等着我把一篇代码写成一首节律清晰，琅琅上口的诗篇。</p>
+<h3 id="3-注释"><a href="#3-注释" class="headerlink" title="3.注释"></a>3.注释</h3><p>注释是个重头戏。随着代码量的增加，我越来越频繁的写着注释，类的注释，段落的注释，方法的注释，算法与判定的注释。原因也很简单，我怕自己忘掉自己在写什么，自己想写什么。在写OC时，command+/逐渐变成了笔，橡皮，书签，和便签。 这里不得不请出<a href="http://onevcat.com/" target="_blank" rel="external">onevcat</a>（江湖称喵神）贡献的神器<a href="https://github.com/onevcat/VVDocumenter-Xcode" target="_blank" rel="external">VVDocumenter</a>了，等会儿会为大家展示神器的爽快之处哦~ 容我献丑，为大家给上面那段代码做个注释。鄙人不才，英语底子差，用英文写注释的能力有限，所以，我写了很掉价的中文注释。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//  BCViewController.h</span></div><div class="line"><span class="comment">//  test</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//  Created by BifidyCAPs on 14/7/2.</span></div><div class="line"><span class="comment">//  Copyright (c) 2014年 BifidyCAPs. All rights reserved.</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//  该类提供了生成权值数组的方法</span></div><div class="line"><span class="comment">//  权值参数为生成数字间隔与数组宽度</span></div><div class="line"><span class="comment">//  可由宏定义设置固定参数</span></div><div class="line"><span class="comment">//  也可自行设置间隔与数组宽度生成</span></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 数组宽度上限</div><div class="line"> *</div><div class="line"> */</div><div class="line"><span class="meta">#define max_array_limit 7</span></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 数字间隔</div><div class="line"> *</div><div class="line"> */</div><div class="line"><span class="meta">#define each_number_distance 2</span></div><div class="line"></div><div class="line"><span class="meta">#import &amp;lt;UIKit/UIKit.h&amp;gt;</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">BCViewController</span> : <span class="title">UIViewController</span></span></div><div class="line"><span class="comment">/**</span></div><div class="line"> *  生成权值数组</div><div class="line"> *  该数组会自动调用宏定义中的预制参数</div><div class="line"> *</div><div class="line"> *  @return 返回权值数组</div><div class="line"> */</div><div class="line">-(<span class="built_in">NSMutableArray</span> *)createStack;</div><div class="line"><span class="comment">/**</span></div><div class="line"> *  自行传递参数生成权值数组</div><div class="line"> *</div><div class="line"> *  @param distance 权值的间隔</div><div class="line"> *  @param limit    数组宽度</div><div class="line"> *</div><div class="line"> *  @return 返回经参数定义后的权值数组</div><div class="line"> */</div><div class="line">-(<span class="built_in">NSMutableArray</span> *)createStackWithNumberDistance:(<span class="keyword">int</span>)distance AndMaxLimit:(<span class="keyword">int</span>)limit;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p>只列出.h的注释好了，毕竟这也是我为了注释而写的注释，只是为了说明我注意的地方。平常在写注释的时候，偶尔还是会在文本上偷懒，但是格式，却是如此固定下来了。习惯了之后，这种段落注释仿佛成了一个大空行，在阅读时，反而因为格式的统一而让人觉得整齐。 需要说明的是，以上的注释是利用VVDocumenter写的，在安装了插件后，///就可以了。具体的使用方法在上文给出的Github链接里都有，我就不赘述了，毕竟是国人自己写的软件，阅读说明书应该没什么障碍。 这里展示一张使用了VVDocumenter的截图： <img src="http://bifidycaps.tk/wp-content/uploads/2014/07/vvdocumenterSnapShot_1.png" alt="VVDocumenter"></p>
+<h3 id="4-VIM"><a href="#4-VIM" class="headerlink" title="4.VIM"></a>4.VIM</h3><p>可能用VIM来命名这段有点不够全面，就我自己而言，这是因为这个软件实在太具有代表性了。 记得刚开始接触XCode的时候，自己的语言基础很差，只有一些C语言基础与杂七杂八的语言拓荒。所以XCode理所应当的成为了我接触到的第一个IDE。（当然了，直到现在，也是我主要在使用的IDE，毕竟我还是一个只会用OC做一些简单开发的菜鸟程序员。） 刚开始，对于XCode的一站式集成，我爱不释手，代码的自动补全让我这样的菜鸟省去了背类名和方法的大麻烦。 其实这只是因为无知而产生的错觉而已。随着到处读文献，开始发现代码不全并不是XCode的特色，而是所有IDE的标配= = 另外，那些背不下来的类和方法，在无穷无尽的代码中，还是不经意的都背下来了。而且是如臂使指的随性敲出，类似于肌肉记忆住了敲击的顺序，而不是大脑记住了拼写= =</p>
+<p>所以，也理所当然的，我开始发现了很多XCode的弱点。 因为庞大，所以臃肿，所以慢，无法想象在成堆的视图构建完成后，一不小心误点了storyboard的漫长等待。 随着代码长度的增加与自己写代码的熟练程度，用鼠标来回翻代码的思路打断越来越让人难以忍受。</p>
+<p>当自己希望能够更快速，高效，不被打扰的写代码时，我决定另外找一款用来写代码的软件。 漫长的历程我就不多讲了，说说我现在的配置吧：Sublime Text 3+Xcode 其实我并没有用VIM，而且我依旧是个VIM的门外汉，对VIM的配置和插件充满了恐惧。 我只是在对现有的编辑方式忍无可忍之后，开始学习VIM的快捷键与编辑方式。 然后在Sublime和XCode上安装了相应的编辑插件。 Sublime的VIM模式是内置的，只需要改setting的参数就行。 XCode,则需要安装<a href="https://github.com/JugglerShu/XVim" target="_blank" rel="external">XVIM</a>插件</p>
+<p>之所以用VIM来命名最后一段经验分享，是想从VIM的使用思路来总结我的工具寻找历程。 VIM的快捷键是组合式的，每个键都有自己的功能，单一，但是细小且明确。 于是VIM的编辑方式更像是对编辑思路的解释执行，选择（V），当前单词(E),删除并插入(C)。 我不清楚这是不是最简单的方式，因为我到现在还没有记清楚VIM的所有快捷键= = 但是VEC这三个字母却已经变成了习惯。 这比用鼠标选中一个单词，再改写，已经省了我不少事。 再比如dd的删除当前行 o和O的上下行插入 都是些简单却又行之有效，让人欲罢不能的功能。 否则，我也不会心甘情愿的入坑。</p>
+<p>而对我而言所有的资源都如同工具一般，从语言到软件工具，再到编程环境里的方方面面。 让所有的工具各司其职，用合适的工具去做对应的事情。尽可能熟练的使用他们，却也不要变成工具的奴隶。</p>
+<p>哦哦，跑题了。其实这段文字是想推荐和介绍几个软件来着。</p>
+<p><strong>XCode</strong> 不解释= =</p>
+<p><strong>Sublime Text</strong> 同类型试过Textmate Atom，甚至是AppCode。结论就两个:打开与处理够快;快捷功能方便，拓展性强。而且作为一个视觉患者，不得不说，Sublime的界面也很漂亮，我还专门花时间挑选了Theme，总之现在用的很舒心。在不是很依靠XCode的其它功能（当然也包括代码补全= =），或者是阅读其它代码，甚至是一些文本文件的时候，我都会用Sublime,确实很方便。比Vim好的地方在于，你即使拿它当Notepad用，他也是个容易上手且功能强大的NotePad。 <strong>3&#46;git</strong> 好吧，我没用过SVN，所以git是我的必备品。好消息是XCode对于git的支持很强大，尤其是左右双开的代码比对和修改注释，界面本身很易懂，信息量也充足。版本控制反倒没怎么感觉优秀，公司里在用sourceTree，自己甚至没用XCode做过Commit。</p>
+<p>觉得这个段落不太好展开，所以就这么草草的结束了。以后如果有心情，或许会专门写一篇文也说不定，不过想想看，纯粹一篇推荐软件的文，不太像我的文风呢= =再说吧~</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/review/Review/review@1.html" rel="prev" title="iOS程序员入门一年记 —— 学习篇">
+                iOS程序员入门一年记 —— 学习篇 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Bifidy CAPs" />
+          <p class="site-author-name" itemprop="name">Bifidy CAPs</p>
+           
+              <p class="site-description motion-element" itemprop="description">一个野生程序员的个人博客</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/bifidy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/bifidy" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#经验分享"><span class="nav-number">2.</span> <span class="nav-text">经验分享</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-更优秀的代码"><span class="nav-number">2.1.</span> <span class="nav-text">1 更优秀的代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-规范代码"><span class="nav-number">2.2.</span> <span class="nav-text">2.规范代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-注释"><span class="nav-number">2.3.</span> <span class="nav-text">3.注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-VIM"><span class="nav-number">2.4.</span> <span class="nav-text">4.VIM</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bifidy CAPs</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://bifidy.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://bifidy.net/review/Review/review@0.5.html';
+          this.page.identifier = 'review/Review/review@0.5.html';
+          this.page.title = '程序员新手半年记';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://bifidy.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
